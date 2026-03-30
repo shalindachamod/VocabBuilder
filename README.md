@@ -42,6 +42,12 @@ Since this is an unpacked extension, follow these steps to use it:
 2. When triggered, it captures the selected text and fetches the Sinhala translation (via an internal dictionary or translation API).
 3. The result is displayed as an alert, a popup, or within a side panel.
 
+## ⚙️ How to Install (Development Mode):
+1. Download this repository as a ZIP and extract it.
+2.Open Chrome and go to chrome://extensions/.
+3.Turn on "Developer mode" (top right).
+4.Click "Load unpacked" and select the folder you extracted.
+
 ---
 
 ## 👨‍💻 Developed By
