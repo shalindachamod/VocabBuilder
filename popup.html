@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --bg-color: #f0f2f5;
+      --card-bg: #ffffff;
+      --text-color: #2d3436;
+      --primary-color: #6c5ce7;
+    }
+
+    body.dark-mode {
+      --bg-color: #2d3436;
+      --card-bg: #353b48;
+      --text-color: #f5f6fa;
+      --primary-color: #a29bfe;
+    }
+
+    body {
+      width: 350px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    h2 { margin: 0; font-size: 20px; color: var(--primary-color); }
+
+    #themeToggle {
+      background: none;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: 0.3s;
+    }
+
+    #themeToggle:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    #wordCountText {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.8;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    #exportBtn {
+      background: var(--primary-color);
+      color: white;
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #exportBtn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      background: var(--card-bg);
+      color: var(--text-color);
+      outline: none;
+    }
+
+    input:focus { border-color: var(--primary-color); }
+
+    .word-item {
+      background: var(--card-bg);
+      margin-bottom: 12px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-left: 5px solid var(--primary-color);
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .word-title {
+      font-weight: bold;
+      font-size: 17px;
+      color: var(--primary-color);
+      margin-bottom: 4px;
+    }
+
+    .btn-group { display: flex; gap: 8px; margin-top: 10px; }
+
+    button.listen-btn, button.delete-btn {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 11px;
+      transition: 0.2s;
+    }
+
+    .listen-btn { background: #00b894; color: white; }
+    .delete-btn { background: #ff7675; color: white; }
+
+    button:hover { opacity: 0.85; }
+
+    #wordList {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    #wordList::-webkit-scrollbar { width: 5px; }
+    #wordList::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+  </style>
+</head>
+<body id="mainBody">
+  <div class="header">
+    <h2>🚀 Vocab Pro</h2>
+    <button id="themeToggle">🌙 Mode</button>
+  </div>
+
+  <p id="wordCountText">Total Words: 0</p>
+  <button id="exportBtn">📥 Export to Excel</button>
+  <input type="text" id="searchInput" placeholder="Search words or meanings...">
+  <div id="wordList"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
